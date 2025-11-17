@@ -2,6 +2,7 @@
 A simple console-based banking application built in Java that simulates basic ATM functionalities such as login, balance check, deposit, withdrawal, transaction history, logout, and system exit.  This project demonstrates the use of arrays, loops, switch-case, classes, and object-oriented concepts with user authentication.
 
 # 📌 Features
+
 🔐 1. User Login System
       Pre-stored 20 users with:Username
                               Password
@@ -27,6 +28,7 @@ Shows current user account balance
 
 
 # 🧠 Concepts Used
+
 OOP (Classes & Objects)
 Arrays
 Loops
@@ -36,6 +38,7 @@ Java Scanner input
 
 
 # 🖼️ Sample Output
+
 ----- LOGIN -----
 Enter Username: sairaj
 Enter Password: 1234
@@ -51,6 +54,7 @@ Enter your choice:
 
 
 # 🎯 Purpose of the Project
+
 This mini project is designed to help beginners understand:
 How login systems work
 How real banking features can be simulated
@@ -59,6 +63,7 @@ How to build console applications
 
 
 # 🤝 Contributions
+
 Feel free to fork, improve, optimize, or add new features such as:
 Transaction history
 Admin panel
