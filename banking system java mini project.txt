@@ -1,0 +1,145 @@
+import java.util.*;
+
+class LoginSystem {
+
+    String[] usernames = {
+        "ram","shyam","aditya","sairaj","sachin",
+        "nikhil","rohan","meera","sneha","komal",
+        "arjun","krish","dev","harsh","yash",
+        "tejas","raj","vivek","mohan","kiran"
+    };
+
+    String[] passwords = {
+        "ram123","shyam123","aditya123","sairaj123","sachin123",
+        "nikhil123","rohan123","meera123","sneha123","komal123",
+        "arjun123","krish123","dev123","harsh123","yash123",
+        "tejas123","raj123","vivek123","mohan123","kiran123"
+    };
+
+    int[] balance = new int[20];
+    ArrayList<String>[] transactions = new ArrayList[20];
+
+    public LoginSystem() {
+        for (int i = 0; i < 20; i++) {
+            balance[i] = 1000;
+            transactions[i] = new ArrayList<>();
+            transactions[i].add("Account Created with ₹1000");
+        }
+    }
+
+    int checkLogin(String user, String pass) {
+        for (int i = 0; i < usernames.length; i++) {
+            if (user.equals(usernames[i]) && pass.equals(passwords[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        LoginSystem sys = new LoginSystem();
+
+        int systemPower = 1; // 1 = ON, 0 = OFF
+
+        while(systemPower == 1) {   // System ON until user enters 00
+
+            System.out.println("===== LOGIN SYSTEM =====");
+            System.out.print("Enter Username (or type '00' to OFF): ");
+            String u = sc.nextLine();
+
+            if (u.equals("00")) {
+                System.out.println("🔴 SYSTEM SHUTTING DOWN...");
+                break;
+            }
+
+            System.out.print("Enter Password: ");
+            String p = sc.nextLine();
+
+            int userIndex = sys.checkLogin(u, p);
+
+            if (userIndex == -1) {
+                System.out.println("❌ Login Failed! Wrong Username or Password.\n");
+                continue;
+            }
+
+            System.out.println("🔓 Login Successful!\n");
+
+            int option;
+
+            do {
+                System.out.println("\n----- ATM MENU -----");
+                System.out.println("1. Check Balance");
+                System.out.println("2. Deposit Money");
+                System.out.println("3. Withdraw Money");
+                System.out.println("4. Mini Statement");
+                System.out.println("5. Logout");
+                System.out.println("0. Exit ATM (but stay logged in system)");
+                System.out.print("Choose option: ");
+
+                option = sc.nextInt();
+
+                switch(option) {
+
+                    case 1:
+                        System.out.println("💰 Current Balance: ₹" + sys.balance[userIndex]);
+                        break;
+
+                    case 2:
+                        System.out.print("Enter amount to Deposit: ");
+                        int dep = sc.nextInt();
+                        if (dep > 0) {
+                            sys.balance[userIndex] += dep;
+                            sys.transactions[userIndex].add("Deposited ₹" + dep);
+                            System.out.println("✔ Deposit Successful!");
+                        } else {
+                            System.out.println("❌ Invalid amount.");
+                        }
+                        break;
+
+                    case 3:
+                        System.out.print("Enter amount to Withdraw: ");
+                        int wd = sc.nextInt();
+                        if (wd > 0 && wd <= sys.balance[userIndex]) {
+                            sys.balance[userIndex] -= wd;
+                            sys.transactions[userIndex].add("Withdrew ₹" + wd);
+                            System.out.println("✔ Withdrawal Successful!");
+                        } else {
+                            System.out.println("❌ Insufficient Balance or Invalid Amount.");
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println("📄 MINI STATEMENT:");
+                        for (String t : sys.transactions[userIndex]) {
+                            System.out.println("• " + t);
+                        }
+                        System.out.println("Current Balance: ₹" + sys.balance[userIndex]);
+                        break;
+
+                    case 5:
+                        System.out.println("🔒 Logged Out Successfully!");
+                        sc.nextLine();   // clear buffer
+                        option = -1;     // break ATM menu, return to login
+                        break;
+
+                    case 0:
+                        System.out.println("👋 Exiting ATM Menu...");
+                        break;
+
+                    default:
+                        System.out.println("❌ Invalid Option.");
+                }
+
+            } while(option != 0 && option != -1); // exit only ATM menu
+
+        }
+
+        sc.close();
+    }
+}
