@@ -64,7 +64,9 @@ Transaction history
 Admin panel
 Multiple accounts support
 File/database storage
-.............................................................................
+
+
 Pull requests are welcome!
+
 ⭐ Show Your Support!
 If you like this project, consider giving it a star on GitHub ⭐
