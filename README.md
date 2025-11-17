@@ -25,14 +25,8 @@ Shows current user account balance
 4.🚪 Exit
   Logout and close the system
 
-.............................................................................
-📂 Project Structure
-├── Login.java        → Handles login operations and user storage  
-├── BankUser.java     → Represents a user (username, password, balance)  
-└── Menu.java         → Displays banking menu after login  
 
-.............................................................................
-🧠 Concepts Used
+# 🧠 Concepts Used
 OOP (Classes & Objects)
 Arrays
 Loops
@@ -40,8 +34,8 @@ Methods & Encapsulation
 Switch-case
 Java Scanner input
 
-.............................................................................
-🖼️ Sample Output
+
+# 🖼️ Sample Output
 ----- LOGIN -----
 Enter Username: sairaj
 Enter Password: 1234
@@ -55,15 +49,16 @@ Login Successful!
 0. Exit
 Enter your choice:
 
-.............................................................................
-🎯 Purpose of the Project
+
+# 🎯 Purpose of the Project
 This mini project is designed to help beginners understand:
 How login systems work
 How real banking features can be simulated
 How Java OOP structure is used in real applications
 How to build console applications
-.............................................................................
-🤝 Contributions
+
+
+# 🤝 Contributions
 Feel free to fork, improve, optimize, or add new features such as:
 Transaction history
 Admin panel
